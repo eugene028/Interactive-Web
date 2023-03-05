@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>CSS Flex</title>
+	<link rel="stylesheet" href="default.css">
+	<style>
+		.flex-container {
+			display:flex;
+		}
+		.flex-item:nth-child(2){
+			flex-grow:1;
+		}
+		.flex-item:nth-child(1){
+			flex-shrink: 0;
+			width: 150px;
+		}
+		.flex-item:nth-child(3){
+			flex-shrink: 0;
+			width: 200px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class = "flex-container">
+		<div class  = "flex-item">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum repellendus officiis aut sequi dolor itaque quis labore quasi unde velit beatae architecto dolorum quaerat repellat possimus, rerum quos autem molestias?</div>
+		<div class  = "flex-item">Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.</div>
+		<div class  = "flex-item">Lorem ipsum dolor sit amet consectetur adipisicing.</div>
+	</div>
+</body>
+</html>

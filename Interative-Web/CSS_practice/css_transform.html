@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .box-container {
+            display:flex;
+        }
+        .box {
+            width:100px;
+            height:100px;
+            background: rgba(255, 255, 0, 0.7);
+            border: 2px solid black;
+            transition: 1s 0.5s;
+            /* transition은 숫자 대상으로만 적용된다. width 같은거 auto해놓으면 안됨 */
+        }
+        .box:hover{
+            /* transform : scale(1.5) rotate(45deg); */
+            transform: skew(30deg);
+            /* transform: translate(30px, 10px); */
+            /* background: red;
+            width:200px; */
+            transform-origin: left top;
+             /*left top 결정*/
+        }
+    </style>
+</head>
+<body>
+    <h1>CSS Transform</h1>
+    <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Inventore, atque totam corrupti voluptate nisi quo? Ratione quis libero aut voluptates sed harum amet modi inventore eveniet quaerat cupiditate voluptate, sunt dolor ipsum? Distinctio culpa corporis numquam necessitatibus, fugiat, beatae cum doloribus fuga illo sapiente vitae esse modi sequi nulla ducimus.
+    </p>
+    <div class="box-container">
+        <div class="box">A</div>
+        <div class="box">B</div>
+        <div class="box">C</div>
+        <div class="box">D</div>
+        <div class="box">E</div>
+    </div>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore sint pariatur iure neque! Nobis dignissimos placeat voluptate autem, laudantium et pariatur magni quisquam suscipit velit quibusdam temporibus a cumque non corporis quasi, dicta saepe modi at ipsam dolor soluta ullam assumenda. Assumenda optio aspernatur deserunt voluptas laborum dicta quidem praesentium placeat cum enim repellendus dolorem amet, veritatis culpa! Alias recusandae dolores beatae, repellat culpa accusamus laborum quos dolore numquam cum, provident dignissimos, ab voluptate. Enim maiores saepe esse vel excepturi, cupiditate odio laudantium, iste, cum eveniet reiciendis optio. Recusandae quo, omnis molestiae architecto quod est eaque cum delectus non deserunt.</p>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href ="default.css">
+    <title>Document</title>
+    <style>
+        .grid-container{
+            /* height:80vh; */
+            display: grid;
+            grid-template-columns: 50px; 
+            /* 첫번째 컬럼만  */
+            grid-auto-columns: 1fr 2fr;
+            /* grid auto-columns로 자동배치 가능하다. */
+            /* grid-template-columns: 100px 300px 200px; */
+            /* grid-template-columns: 1fr 500px 1fr; */
+            /* grid-template-columns: repeat(3, 1fr); */
+            /* grid-template-columns: repeat(auto-fit, minmax(20%, auto)); */
+            /* auto-fit을 넣으면 개수 모자를 때 알아서 넣어준다. */
+            /* 쉽게 반응형 만들고 싶으면 px로 하자. */
+            /* grid-template-rows: 200px 200px 200px; */
+            /* grid-template-rows: repeat(2, 1fr); */
+            /* grid-template-rows: repeat(3, minmax(100px, auto)); */
+            /* grid-auto-rows: minmax(100px,auto); */
+            /* 그리드는 기본적으로 화면을 꽉 채우려는 성질을 가짐 */
+            gap: 1rem;
+        }
+        .grid-item:nth-child(1){
+            grid-column: 2;
+        }
+        .grid-item:nth-child(2){
+           grid-column:3; 
+        }
+        .grid-item:nth-child(3){
+           grid-column:4; 
+        }
+        .grid-item:nth-child(4){
+            /* grid-column: 3 /4; */
+            /* grid-row: 2 / 4; */
+            /* grid-row: 2 / span 2; */
+            grid-column: 5;
+        }
+        .grid-item:nth-child(5){
+            grid-column: 6;
+        }
+        .grid-item:nth-child(6){
+            grid-column:7;
+        }
+
+    </style>
+</head>
+<body>
+    <div class ="grid-container">
+        <div class="grid-item">A!</div>
+        <div class="grid-item">B</div>
+        <div class="grid-item">C</div>
+        <div class="grid-item">D</div>
+        <div class="grid-item">E</div>
+        <div class="grid-item">F</div>
+        <div class="grid-item">G</div>
+        <div class="grid-item">H</div>
+        <div class="grid-item">I</div>
+
+    </div>
+</body>
+</html>

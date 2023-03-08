@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href ="default.css">
+    <title>Document</title>
+    <style>
+        .grid-container{
+            display:grid;
+            gap: 1rem;
+            grid-template-columns: 1fr 3fr 1fr;
+            grid-template-areas: 
+                '. header header'
+                'sidebar-a main sidebar-b'
+                'footer footer footer';
+        }
+        .header {
+            grid-area: header;
+        }
+        .sidebar-a{
+            grid-area: sidebar-a;
+        }
+        .sidebar-b{
+            grid-area: sidebar-b;
+        }
+        .main{
+            grid-area: main;
+        }
+        .footer{
+            grid-area: footer;
+        }
+    </style>
+</head>
+<body>
+    <div class ="grid-container">
+        <div class="header grid-item">Header</div>
+        <div class="sidebar-a grid-item">Sidebar A</div>
+        <div class="sidebar-b grid-item">Sidebar B</div>
+        <div class="main grid-item">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam numquam aut debitis officiis amet, corporis veniam asperiores maiores unde cum consectetur laudantium blanditiis non quidem aliquid, vero libero soluta quae! Nesciunt, modi reprehenderit nulla ipsum consequuntur eligendi odio fugiat distinctio voluptates ipsa blanditiis maiores ullam quaerat eveniet. Vero nihil maxime temporibus accusantium quas voluptates ab, reiciendis ducimus molestias est eveniet cumque eligendi repellat labore, similique omnis, animi necessitatibus ad eos perferendis fugit. Numquam ipsa unde amet quis vero voluptate magnam saepe, ipsam accusantium atque autem libero obcaecati optio sint, neque porro adipisci doloribus tempora veritatis voluptatem sapiente officia. Tenetur, libero.</div>
+        <div class="footer grid-item">Footer</div>
+    </div>
+</body>
+</html>

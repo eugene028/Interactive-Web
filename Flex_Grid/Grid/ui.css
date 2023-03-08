@@ -1,0 +1,147 @@
+/* menu */
+.menu{
+	display:flex;
+}
+
+.menu-item{
+	background: gold;
+	width:25%;
+	/* flex grow로 처리해도 되나, 이게 애니메이션이 익스플로러에는 안먹어 */
+	/* flex-grow:1; */
+	transition:0.5s
+}
+
+.menu-item:hover{
+	width:35%;
+	/* flex-grow:1.5; */
+	background: crimson;
+}
+.menu-link {
+	display:block;
+	padding: 1em;
+	/* 글자크기만큼의 패딩을 갖고싶어요. */
+	font-size:1.2rem; 
+	/* 폰트사이즈는 root html크기만큼 갈게요. */
+	font-weight: bold;
+	color: #555;
+	text-decoration: none;
+	text-align: center;
+}
+.menu-item:hover{
+	color:white;
+}
+.search-form{
+	display:flex;
+	height:40px;
+}
+/* flex container 조절하니까 안에 있는 item이 자동으로 조절되는 현상이용 */
+.search-form input[type='search']{
+	flex: 1 0 auto;
+	border:0;
+	border-radius: 0.3em;
+	font-size:1rem;
+	margin-right:10px;
+	/* 따로 설정 안해서 16px정도일 듯 */
+}
+.search-form input[type="submit"]{
+	width: 4em;
+	border: 0;
+	border-radius: 0.3em;
+	font-size:1rem;
+	background: gold;
+}
+
+/* bullet list */
+.info-list-item{
+	display:flex;
+	margin: 0.5em 0;
+}
+
+.info-list-item:before{
+	content:'🍅';
+	margin-right: 0.5em;
+}
+/* 사과와 텍스트 나란히 놓고 싶어서 flex를 이용한것이다. */
+
+/* message */
+.user-item{
+	display:flex;
+	margin-bottom: 1.5rem;
+}
+
+.user-photo {
+	width:50px;
+	height: 50px;
+	border: 2px solid #333;
+	background: gold;
+	border-radius: 50%;
+	background-repeat: none;
+	background-position: top;
+	/* 일반적으로 center가 맞다. */
+	background-size: 150%;
+	flex-shrink: 0;
+	margin-right: 0.5em;
+	/* 공간이 없어도 사진이 안찌그러들게 만들기. background니까 원래 찌그러짐 */
+}
+.friend-item {
+	align-items: center;
+}
+
+.user-name{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+/* modal */
+.modal {
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	background: rgba(0, 0, 0, 0.3);
+	position:fixed;
+	left:0;
+	right:0;
+	top:0;
+	bottom:0;
+}
+
+.dialog{
+	background: white;
+	width: 50vw;
+	padding: 2em;
+	border-radius: 1em;
+}
+
+/* card list */
+.card-list {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(220px, auto));
+	gap : 1rem;
+}
+
+.card-item{
+	margin-bottom: 2rem;
+	display: flex;
+	flex-direction: column;
+}
+.card-image {
+	background: lightgray;
+	height:0;
+	padding-bottom: 60%;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+
+.card-desc{
+	padding:1em;
+	background-color: white;
+	flex-grow:1;
+}
+
+.card-image img{
+	display:none;
+}
+
+

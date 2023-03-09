@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Interactive Web</title>
+    <link rel="stylesheet" href="reset.css">
+    <style>
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        .characters {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            background: #fff000;
+        }
+        .ilbuni {
+            width: 100px;
+            cursor: pointer;
+        }
+        .characters .ilbuni {
+            display: inline-block;
+        }
+        .special {
+            border: 10px dashed red;
+        }
+    </style>
+    <!-- <script>
+        window.addEventListener('load', function() {
+            //load는 비효율적이여서 DOMContentLoaded DOM만로드할때 !! 
+            const ilbuni3load = document.querySelector('.ilbuni.c')
+            function clickInbuniHandler(){
+                ilbuni3load.classList.toggle('special');
+            }
+            ilbuni3load.addEventListener('click', clickInbuniHandler);
+        });
+    </script> -->
+</head>
+<body>
+    <div class="characters">
+        <div class="ilbuni a">
+            <img src="ilbuni_0.png" alt="일분이">
+        </div>
+        <div class="ilbuni b">
+            <img src="ilbuni_1.png" alt="일분이">
+        </div>
+        <div class="ilbuni c">
+            <img src="ilbuni_2.png" alt="일분이">
+        </div>
+    </div>
+    <div class="ilbuni d">
+        <img src="ilbuni_3.png" alt="일분이">
+    </div>
+    <!-- body맨밑에 두면 모두 로드될때까지 기다릴 필요 없음,. -->
+    <script>
+        (function(){
+            const ilbuni3load = document.querySelector('.ilbuni.c');
+        //ilbuni3load가 전역변수라는게 단점이다.
+            function clickInbuniHandler(){
+                ilbuni3load.classList.toggle('special');
+            }
+            ilbuni3load.addEventListener('click', clickInbuniHandler);
+        })();
+       //전역변수 사용하지 않기 위해 함수 안에 가두었다.
+    </script>
+</body>
+</html>

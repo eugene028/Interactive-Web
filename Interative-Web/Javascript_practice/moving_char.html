@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="02_02.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="stage">
+        <div class="ilbuni a"></div>
+        <div class="ilbuni b"></div>
+        <div class="ilbuni c"></div>
+        <div class="ilbuni d"></div>
+    </div>
+    <script>
+        (function(){
+            const ilbuniGroup = document.querySelectorAll('.ilbuni');
+            const stage = document.querySelector('.stage');
+            function clickHandler(e){
+                stage.removeChild(this);
+                // this.parentNode.removeChild(this); 이렇게해도됨.
+            }
+            for (let i = 0 ; i < ilbuniGroup.length; i++){
+                ilbuniGroup[i].addEventListener('click', clickHandler);
+            }
+        })();
+    </script>
+</body>
+</html>

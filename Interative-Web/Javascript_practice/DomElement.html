@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Interactive Web</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <style>
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        .characters {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            background: #fff000;
+        }
+        .ilbuni {
+            width: 100px;
+            cursor: pointer;
+        }
+        .characters .ilbuni {
+            display: inline-block;
+        }
+        .special {
+            border: 10px dashed red;
+        }
+    </style>
+</head>
+<body>
+    <div class="characters">
+        <div class="ilbuni a">
+            <img src="ilbuni_0.png" alt="일분이">
+        </div>
+        <div class="ilbuni b">
+            <img src="ilbuni_1.png" alt="일분이">
+        </div>
+        <div class="ilbuni c">
+            <img src="ilbuni_2.png" alt="일분이">
+        </div>
+    </div>
+    <div class="ilbuni d">
+        <img src="ilbuni_3.png" alt="일분이">
+    </div>
+
+    <script>
+        //
+        const ilbuni = document.querySelector('.ilbuni');
+        //const ilbuni = document.querySelector('.characters .ilbuni:nth-child(2)')
+        // 이렇게 작성하면 가장 먼저 있는 일분이 a만 출력이 된다.
+        const ilbunia = document.querySelector('.a');
+        //이렇게 하면 a 클래스를 가진 일분이만 출력되겠죠? 
+        const characters = document.querySelectorAll('.ilbuni');
+        //전체 캐릭터 목록 출력된다. NodeList가 나오는데(엄밀히 배열은 아님)
+        const second = characters[2]; //이렇게 하면 두번째 캐릭터가 선택된다.
+        const char = document.querySelector('.characters');
+        char.setAttribute('data-id', 1234);//속성이 세팅된다.
+        char.getAttribute('data-id');
+       
+        const pElem = document.createElement('p')
+        pElem.innerHTML = '<a href ="#">안녕</a>'
+        const charactersElem = document.querySelector('.characters');
+        charactersElem.appendChild(pElem);//막내 자식으로 알아서 붙게됩니다.
+        charactersElem.removeChild(document.querySelector('.b'));//두번째 자식 없애준다.\
+
+        const ilbuni1 = document.querySelector('.ilbuni');
+        ilbuni.classList.add('special'); //클래스를 붙이기!
+        ilbuni.className = 'special' //이렇게 하면 스페셜만 남게 된다. 왜냐하면 기존에 있는 클래스를 보존하지 않고 이것만 남기도록 className을 수정하기 때문임!@ 
+        const ilbuni3 = document.querySelector('.ilbuni');
+        ilbuni3.classList.remove('ilbuni'); //클래스명 사라지게 하기
+        ilbuni3.classList.toggle('ilbuni'); //있으면  없애고, 없으면 붙이는 class이다. 
+    </script>
+</body>
+</html>

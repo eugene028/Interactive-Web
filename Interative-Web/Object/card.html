@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .card{
+            display: inline-flex;
+            width : 100px;
+            height:150px;
+            border: 2px solid black;
+            border-radius: 10px;
+            font-size: 3rem;
+            font-weight: 900;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function Card(num, color) {
+            this.num = num;
+            this.color = color;
+            this.init(); 
+            //카드 생성만해도 init 메소드 실행된다.
+        }
+        //프로토타입 객체를 만들려면 꼭! 생성자를 만들어줘야함.
+        Card.prototype  = {
+            constructor : Card,
+            init: function(){
+                const mainElem = document.createElement('div');
+                mainElem.style.color = this.color;
+                mainElem.innerHTML = this.num;
+                mainElem.classList.add('card');
+                document.body.appendChild(mainElem);
+            }
+        }
+
+        const card1 = new Card(1, 'green');
+        const card2 = new Card(2, 'blue');
+
+    </script>
+</body>
+</html>

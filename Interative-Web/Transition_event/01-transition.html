@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Transition/Animation Event</title>
+  <style>
+    .ball{
+      position:absolute;
+      left:0;
+      top:0;
+      margin: -15px 0 0 -15px;
+      width:30px;
+      height:30px;
+      border-radius: 50%;
+      background: red;
+      transition: 0.5s;
+    }
+    .ball.end{
+      background: dodgerblue;
+    }
+  </style>
+</head>
+<body>
+  <div class ="ball"></div>
+  <script>
+    const ballElem = document.querySelector('.ball');
+    window.addEventListener('click', function(e) {
+      ballElem.style.transform = 'translate(' + e.clientX + 'px, ' + e.clientY + 'px)'
+      console.log(e.clientX, e.clientY);
+    });
+    ballElem.addEventListener('transitionend', function(e){
+      ballElem.classList.add('end');
+      console.log(e.elapsedTime) //얼마나의시간이걸렸는가?
+      console.log(e.propertyName);
+    })
+    //transitionstart도있음ㅋ.
+  </script>
+</body>
+</html>

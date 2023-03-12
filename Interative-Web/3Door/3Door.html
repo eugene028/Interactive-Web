@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel ="stylesheet" href = "css/reset.css">
+    <title>3 Door</title>
+    <style>
+        .stage{
+            display:flex;
+            align-items:center;
+            justify-content: center;
+            width:100vw;
+            height: 100vh;
+            background: #333;
+            /* perspective: 800px; */
+            /* stage에다가 perspective를 주면  시점이달라보여. 문각각에 시점을 주도록 하자,*/
+        }
+        .door{
+            position:relative;
+            width: 100px;
+            height: 150px;
+        }
+        .door-opened .door-body{
+            transform: perspective(800px) rotateY(-110deg);
+            
+        }
+        .door-back{
+            overflow: hidden;
+            position:absolute;
+            left:0;
+            top:0;
+            width:100%;
+            height:100%;
+            background-color: black;
+        }
+        .ilbuni {
+            position:absolute;
+            left:0;
+            bottom:0;
+            width:100px;
+            height:100px;
+            background-repeat: no-repeat;
+            background-position: 50% 100%;
+            background-size: contain;
+            transform: translate3d(100%, 0, 0);
+            transition:0.5s 0.3s;
+            /* transition-delay: 0.3s; */
+            /* translate3D : 하드웨어 가속해서 좀 더 부드럽게 수행한다. */
+            /* translate 퍼센트대신에 픽셀쓰면 되게 편리하다. */
+        }
+        .door:nth-child(1) .ilbuni {background-image: url('ilbuni_0.png');}
+        .door:nth-child(2) .ilbuni {
+            background-image: url('ilbuni_1.png');
+        }
+        .door:nth-child(3) .ilbuni {
+            background-image: url('ilbuni_2.png');
+        }
+        .door-opened .ilbuni {
+            transform: translate3d(0, 0, 0);
+        }
+        
+        .door-body{
+            position:absolute;
+            left:0;
+            top:0;
+            width:100%;
+            height:100%;
+            transition: 0.5s;
+            transform-origin: 0%;
+        }
+        .door:nth-child(1) .door-body {
+            background: rgba(255, 0, 0, 0.7); }
+        .door:nth-child(2) .door-body{
+            background: rgba(0, 255, 0, 0.7);
+        }
+        .door:nth-child(3) .door-body{
+            background: rgba(0, 0, 255, 0.7);
+        }
+    </style>
+</head>
+<body>
+<div class="stage">
+    <div class="door">
+        <div class="door-back">
+            <div class="ilbuni"></div>
+        </div>
+        <div class="door-body"></div>
+    </div>
+    <div class="door">
+        <div class="door-back">
+            <div class="ilbuni"></div>
+        </div>
+        <div class="door-body"></div>
+    </div>
+    <div class="door">
+        <div class="door-back">
+            <div class="ilbuni"></div>
+        </div>
+        <div class="door-body"></div>
+    </div>
+</div>
+<script>
+    (function() {
+        const stage = document.querySelector('.stage');
+        // 현재 활성화된 아이템을 저장하는 곳 
+        let currentItem;
+        // 함수가 이벤트 핸들러라면 e라는 이벤트 객체를 꼭 가지고 온다.
+        function activate(elem) {
+            elem.classList.add('door-opened');
+                currentItem = elem;
+        }
+        function inactivate(elem) {
+            elem.classList.remove('door-opened');
+        }
+        
+        function doorHandler(e){
+            const targetElem = e.target;
+            // DOM연산은 가장 느린 스크립트 연산이다.
+            // const currentItem = document.querySelector('.door-opened');
+            if (currentItem) {
+                inactivate(currentItem);
+            }
+
+            if (targetElem.classList.contains('door-body')){
+                activate(targetElem.parentNode);
+            } 
+
+        }
+        // 이벤트 위임 시 발생하는 예외에 대한 처리를 꼭 해주기.
+        stage.addEventListener('click',doorHandler);
+        activate(document.querySelector('.door:first-child'));
+    })();
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object</title>
+</head>
+<body>
+    <h1>Object</h1>
+
+    <script>
+        //생성자 함수를 만들어보자!
+        function Person(name, age) {
+            this.name =  name;
+            //생성자 함수로 실행될 개별 객체
+            this.age = age;
+            // this.introduce = function() {
+            //     console.log('안녕하숑. 나는' + this.name + '이고, 나이는 ' + this.age + '살이에요.')
+            // }
+            //여러개 만들수록 메모리 차지가 늘어나니까 prototype만들자.
+        }
+
+        Person.prototype.introduce = function(){
+            console.log('안녕하숑. 나는' + this.name + '이고, 나이는 ' + this.age + '살이에요.')
+        }
+
+        const person2 = new Person('유찡이', 10);
+        //함수가 생성자로서 일하게 하고 싶으면 new를 붙이라잉
+
+        const person = {
+            name: '김유진',
+            age: 10,
+            introduce: function(){
+                console.log('안녕하숑. 나는' + this.name + '이고, 나이는 ' + this.age + '살이에요.')
+            }
+        };
+        // this는 메소드를 실행한 주체 객체를 가리킨다.
+        //person2는 인스턴스임.
+        person2.introduce();
+    </script>
+</body>
+</html>

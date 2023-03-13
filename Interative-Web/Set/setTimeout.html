@@ -19,16 +19,17 @@
         const btn = document.querySelector('.btn');
         function sample(){
             n++;
-            console.log(n);
+            //console.log(n);
             if(n > 200){
                 return;
             }
             console.log('sample!');
             timeId = requestAnimationFrame(sample);
+            //timeId = setTimeout(sample, 2000);
             //계속 반복
         }
 
-        sample();
+        //sample();
         timeId = setInterval(sample, 1000);
         //반복을 할때 계속 쓴다. 컴퓨터 부하 걸리면 frame 로스 달고, 배터리 많이 닳는다.
 
@@ -36,6 +37,7 @@
         // btn.addEventListener('click', function(){
         //     clearTimeout(timeId);
         // })
+        console.log(timeId)
         btn.addEventListener('click', function(){
             cancelAnimationFrame(timeId);
         })

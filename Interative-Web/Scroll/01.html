@@ -52,6 +52,7 @@
             const ilbuniElem = document.querySelector('.ilbuni')
             function showValue() {
                 let posY = ilbuniElem.getBoundingClientRect().top 
+                console.log(ilbuniElem.getBoundingClientRect())
                 outputElem.innerHTML = posY;
                 console.log(innerHeight);  
                 if (posY < window.innerHeight * 0.2){
@@ -61,10 +62,7 @@
                     ilbuniElem.classList.remove('zoom');
                 }
             }
-            window.addEventListener('scroll', function(){
-                // outputElem.innerHTML = window.pageYOffset;
-                showValue();
-            })
+            window.addEventListener('scroll', showValue)
         })();
     </script>
 </body>

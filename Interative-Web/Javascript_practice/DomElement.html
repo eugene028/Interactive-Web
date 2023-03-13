@@ -52,10 +52,13 @@
         // 이렇게 작성하면 가장 먼저 있는 일분이 a만 출력이 된다.
         const ilbunia = document.querySelector('.a');
         //이렇게 하면 a 클래스를 가진 일분이만 출력되겠죠? 
+        
         const characters = document.querySelectorAll('.ilbuni');
+        console.log(characters);
         //전체 캐릭터 목록 출력된다. NodeList가 나오는데(엄밀히 배열은 아님)
         const second = characters[2]; //이렇게 하면 두번째 캐릭터가 선택된다.
         const char = document.querySelector('.characters');
+        console.log(char);
         char.setAttribute('data-id', 1234);//속성이 세팅된다.
         char.getAttribute('data-id');
        
